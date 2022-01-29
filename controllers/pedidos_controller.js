@@ -34,7 +34,7 @@ exports.getPedidos = (req, res, next) => {
                             request: {
                                 tipo: 'GET',
                                 description: 'Retorna detalhes de um pedido',
-                                url: proccess.env.URL_API + 'pedidos/'+ped.id_pedido
+                                url: process.env.URL_API + 'pedidos/'+ped.id_pedido
                             }
                         }
                     }),
@@ -82,7 +82,7 @@ exports.inserePedidos = (req, res, next) => {
                                     request: {
                                         tipo: 'GET',
                                         description: 'Retorna todos os pedidos',
-                                        url: proccess.env.URL_API + 'pedidos'
+                                        url: process.env.URL_API + 'pedidos'
                                     }
                                 }
                     }
@@ -127,7 +127,7 @@ exports.getIdPedido = (req, res, next) => {
                                 request: {
                                     tipo: 'GET',
                                     description: 'Retorna todos os pedidos',
-                                    url: proccess.env.URL_API + 'pedidos'
+                                    url: process.env.URL_API + 'pedidos'
                                 }
                             }
                 }
@@ -160,7 +160,7 @@ exports.removePedido = (req, res, next) => {
                     request: {
                         tipo: 'POST',
                         description: 'Insere um pedido',
-                        url: proccess.env.URL_API + 'pedidos/',
+                        url: process.env.URL_API + 'pedidos/',
                         body:{
                             "id_produto": 'number',
                             "quantidade": 'number'
