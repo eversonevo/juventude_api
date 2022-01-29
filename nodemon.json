@@ -5,6 +5,7 @@
         "MYSQL_DATABASE":"u903973099_api_teste_bd",
         "MYSQL_HOST":"sql719.main-hosting.eu",
         "MYSQL_PORT": 3306,
-        "JWT_KEY":"chave_segredo",
+        "URL_API":"http://localhost:3000/",
+        "JWT_KEY":"chave_segredo"
     }
 }
