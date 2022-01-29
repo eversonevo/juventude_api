@@ -42,7 +42,7 @@ router.get('/', produtos_controller.getProdutos);
 router.post(
     '/',
     login.required, 
-    upload.single('produto_imagem'), 
+    upload.single('imagem_produto'), 
     produtos_controller.insereProduto);
 
 // retorna os dados de um produto pelo id
