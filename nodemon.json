@@ -6,6 +6,5 @@
         "MYSQL_HOST":"sql719.main-hosting.eu",
         "MYSQL_PORT": 3306,
         "JWT_KEY":"chave_segredo",
-        "JQY":"teste"
     }
 }
