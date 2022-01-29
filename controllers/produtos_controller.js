@@ -26,7 +26,7 @@ exports.getProdutos = (req, res, next) => {
                             request: {
                                 tipo: 'GET',
                                 description: 'Retorna todos os produtos',
-                                url: proccess.env.URL_API + 'produtos/'+prod.id_produto
+                                url: process.env.URL_API + 'produtos/'+prod.id_produto
                             }
                         }
                     }),
@@ -77,7 +77,7 @@ exports.insereProduto = (req, res, next) => {
                                 request: {
                                     tipo: 'POST',
                                     description: 'Insere um produto',
-                                    url: proccess.env.URL_API + 'produtos'
+                                    url: process.env.URL_API + 'produtos'
                                 }
                             }
                 }
@@ -119,7 +119,7 @@ exports.getIdProduto = (req, res, next) => {
                                 request: {
                                     tipo: 'GET',
                                     description: 'Retorna um produto',
-                                    url: proccess.env.URL_API + 'produtos'
+                                    url: process.env.URL_API + 'produtos'
                                 }
                             }
                 }
@@ -173,7 +173,7 @@ exports.updateProduto = (req, res, next) => {
                                 request: {
                                     tipo: 'GET',
                                     description: 'Retorna detalhes de um produto',
-                                    url: proccess.env.URL_API + 'produtos/'+req.body.id_produto
+                                    url: process.env.URL_API + 'produtos/'+req.body.id_produto
                                 }
                             }
                 }
@@ -202,7 +202,7 @@ exports.removeProduto = (req, res, next) => {
                     request: {
                         tipo: 'POST',
                         description: 'Insere um produto',
-                        url: proccess.env.URL_API + 'produtos/',
+                        url: process.env.URL_API + 'produtos/',
                         body:{
                             nome: 'String',
                             preco: 'double number'
