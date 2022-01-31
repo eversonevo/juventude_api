@@ -3,37 +3,30 @@
 const express = require('express');
 const router = express.Router();
 const multer = require('multer'); //para trabalhar com imagens
+var FTPStorage = require('multer-ftp');
 const login = require('../middleware/login');
+const path = require('path');
 const produtos_controller = require('../controllers/produtos_controller');
 
-// vai marcar destino e nome do arquivo
-const storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-        cb(null, './uploads/');
-    },
-    filename: function(req, file, cb) {
+var upload = multer({
+    storage: new FTPStorage({
+      basepath: process.env.BASE_PATCH_FTP,
+      filename: function(req, file, cb) {
         let data = new Date().toISOString().replace(/:/g, '-') + '-';
-        console.log(data);
-        cb(null, data + file.originalname );
-    }
-});
+        cb(null, data + file.originalname);
+      },      
+      destination: function (req, file, options, callback){
+        callback(null, path.join(options.basepath, 'prod_'+new Date().toISOString().replace(/:/g, '-') + "_" + file.originalname))
+     },
+      ftp: {        
+        host: process.env.HOST_FTP,
+        secure: false, // enables FTPS/FTP with TLS
+        user: process.env.USER_FTP,
+        password: process.env.PASSWORD_FTP
+      }
+    })
+  })
 
-// filtro apenas para aceitar apenas jpg e png
-const fileFilter = (req, file, cb) => {
-    if (file.mimetype === 'image/jpeg' || file.mimetype === 'image/png') {
-        cb(null, true);
-    } else {
-        cb(null, false);
-    }
-}
-
-const upload = multer({
-    storage: storage,
-    limits:{
-        fileSize: 1024 * 1024 * 5   // limitará em 5MB
-    },
-    fileFilter: fileFilter
-});
 
 //retorna todos os produtos
 router.get('/', produtos_controller.getProdutos);
@@ -42,6 +35,7 @@ router.get('/', produtos_controller.getProdutos);
 router.post(
     '/',
     login.required, 
+    //this.newFileUpload,
     upload.single('imagem_produto'), 
     produtos_controller.insereProduto);
 
