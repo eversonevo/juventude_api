@@ -10,6 +10,7 @@
         "BASE_PATCH_FTP" : "",
         "HOST_FTP": "ftp.evodesenvolvimentos.com.br",
         "USER_FTP": "u903973099.uploads_juve",
-        "PASSWORD_FTP" : "98yvjhjM"        
+        "PASSWORD_FTP" : "98yvjhjM",
+        "teste" : "teste"        
     }
 }
